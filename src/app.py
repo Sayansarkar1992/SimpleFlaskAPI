@@ -26,6 +26,18 @@ def create_app():
 
     return app
 
+    @app.post("/api/info")
+    def update_info():
+        payload = request.get_json(silent=True) or {}
+        name = payload.get("name")
+        contactInfo = payload.get("contactInfo")
+
+
+        res = f"user name is {name} and contact info is {contactInfo}"
+        return jsonify({"message": res})
+
+    return app
+
 
 app = create_app()
 
