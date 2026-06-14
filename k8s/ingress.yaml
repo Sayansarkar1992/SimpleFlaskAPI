@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-flask-app-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: simple-flask.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: simple-flask-app
+                port:
+                  number: 5000
