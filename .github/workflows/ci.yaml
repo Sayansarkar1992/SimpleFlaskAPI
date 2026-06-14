@@ -8,12 +8,13 @@ on:
       - '.github/workflows/ci.yaml'
       - 'Dockerfile'
       - 'src/**'
+      - 'runnerdeployment.yaml'
     branches:
       - main
 
 jobs:
   docker:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     environment: Ephemeral1
     steps:
       -
